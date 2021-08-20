@@ -1,6 +1,6 @@
-int	ft_str_is_numeric(char	*str);
+int	ft_isdigit(char	*str);
 
-int	ft_str_is_numeric(char	*str)
+int	ft_isdigit(char	*str)
 {
 	int	i;
 	int	count_num;

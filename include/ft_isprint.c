@@ -1,6 +1,6 @@
-int	ft_str_is_printable(char	*str);
+int	ft_isprint(char	*str);
 
-int	ft_str_is_printable(char	*str)
+int	ft_isprint(char	*str)
 {
 	int	i;
 	int	count_printable;
@@ -9,7 +9,7 @@ int	ft_str_is_printable(char	*str)
 	count_printable = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 32 && str[i] <= 127)
+		if (str[i] >= 32 && str[i] <= 126)
 			count_printable++;
 		i++;
 	}
