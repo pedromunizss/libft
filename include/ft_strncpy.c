@@ -1,16 +1,14 @@
-char	*ft_strncpy(char	*dest, char	*src, unsigned int n);
-
-char	*ft_strncpy(char	*dest, char *src, unsigned int n)
+char	*ft_strlcpy(char	*dest,const char *src, size_t size)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (i < size && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
+	while (i < size)
 	{
 		dest[i] = '\0';
 		i++;
