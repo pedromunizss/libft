@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 16:59:17 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 16:59:19 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/08/25 20:41:55 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	if (ft_islower(c) || ft_isupper(c))
+	if (c >= 'a' || c <= 'z'|| c >= 'A' || c <= 'Z')
 		return (1);
 	return (0);
 }

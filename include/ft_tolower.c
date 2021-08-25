@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:50 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 17:00:54 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/08/25 20:42:31 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_tolower(int	c)
 {
-	if (ft_isupper(c))
+	if (c >= 'A' || c <= 'Z')
 		return (c + 32);
 	return (c);
 }
