@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:18:02 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/30 15:52:03 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 16:51:05 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,5 @@ int ft_memcmp (const void   *s1, const void *s2, size_t size)
     	++ptr_s1;
     	++ptr_s2;
     }
-    diff = (int)(*ptr_s1 - *ptr_s2);
-    if (diff > 0)
-        return(1);
-    else if (diff < 0)
-        return(-1);
-    else
-        return(0);
+    return ((int)(*ptr_s1 - *ptr_s2));
 }
