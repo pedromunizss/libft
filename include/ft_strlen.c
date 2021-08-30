@@ -6,13 +6,13 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:33 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/28 13:43:52 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 10:09:18 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char	*s)
 {
 	const char	*ptr;
 
