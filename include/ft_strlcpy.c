@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:43 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 17:00:45 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/08/31 21:48:41 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlcpy(char	*dest,const char *src, size_t size)
+char	*ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
+	char	*ptr_src;
+	char	*ptr_dest;
 
-	i = 0;
-	while (i < size && src[i] != '\0')
+	ptr_dest = (char *)dest;
+	ptr_src = (char *)src;
+	while (*ptr_src != '\0' && size--)
 	{
-		dest[i] = src[i];
-		i++;
+		*ptr_dest = *ptr_src;
+		ptr_dest++;
+		ptr_src++;
 	}
-	while (i < size)
-	{
-		dest[i] = '\0';
-		i++;
-	}
+	*ptr_dest = '\0';
 	return (dest);
 }
