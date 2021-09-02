@@ -6,15 +6,15 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 16:58:58 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 16:59:07 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/02 19:11:39 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int  c)
+int	ft_isalnum(int c)
 {
-    if (ft_islower(c) || ft_isupper(c) || ft_digit(c))
-        return (1);
-    return (0);
+	if (ft_islower (c) || ft_isupper (c) || ft_digit (c))
+		return (1);
+	return (0);
 }
