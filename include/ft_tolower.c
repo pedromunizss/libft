@@ -6,13 +6,13 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:50 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 20:42:31 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 19:58:23 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int	c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' || c <= 'Z')
 		return (c + 32);

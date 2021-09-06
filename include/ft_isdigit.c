@@ -6,15 +6,15 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 16:59:42 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/08/25 20:47:55 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 19:49:02 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int	c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	return(0);
+	return (0);
 }
