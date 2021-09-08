@@ -6,9 +6,14 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:12:00 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/06 20:19:01 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 10:26:24 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef LIBFT_H
+#define LIBFT_H
+
+#include <stddef.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t size);
@@ -31,3 +36,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+#endif

@@ -6,9 +6,11 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:43 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/01 17:26:28 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/07 22:41:10 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	*ft_strlcpy(char *dest, const char *src, size_t size)
 {

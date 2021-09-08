@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 10:18:02 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/06 19:52:06 by pmuniz-s         ###   ########.fr       */
+/*   Created: 2021/08/28 13:39:15 by pmuniz-s          #+#    #+#             */
+/*   Updated: 2021/09/07 22:41:57 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include 'libft.h'
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t size)
+void	*ft_memmove(void *dest, void *src, size_t size)
 {
-	unsigned char	*ptr_s1;
-	unsigned char	*ptr_s2;
+	unsigned char	*ptr_src;
+	unsigned char	*ptr_dest;
+	unsigned char	*temp;
 
-	ptr_s1 = (unsigned char *)s1;
-	ptr_s2 = (unsigned char *)s2;
-	while (*ptr_s1 == *ptr_s2 && size--)
-	{
-		++ptr_s1;
-		++ptr_s2;
-	}
-	return ((int)(*ptr_s1 - *ptr_s2));
+	ptr_src = (unsigned char *)src;
+	ptr_dest = (unsigned char *)dest;
+	ft_memcpy(temp, ptr_src, size);
+	while (size--)
+		*ptr_dest++ = *temp++;
+	return (dest);
 }

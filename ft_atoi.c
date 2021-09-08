@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 13:39:15 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/06 19:55:33 by pmuniz-s         ###   ########.fr       */
+/*   Created: 2021/09/03 11:14:03 by pmuniz-s          #+#    #+#             */
+/*   Updated: 2021/09/07 22:16:38 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, void *src, size_t size)
-{
-	unsigned char	*ptr_src;
-	unsigned char	*ptr_dest;
-	unsigned char	*temp;
+#include "libft.h"
 
-	ptr_src = (unsigned char *)src;
-	ptr_dest = (unsigned char *)dest;
-	ft_memcpy(temp, ptr_src, size);
-	while (size--)
-		*ptr_dest++ = *temp++;
-	return (dest);
+int	ft_atoi(const char *nptr)
+{
+	int	integer;
+	int	sign;
+
+	integer = 0;
+	sign = 1;
+	while ((*nptr >= 8 && *nptr <= 13) || (*nptr == 32))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
+	}
+	while (ft_isdigit(*nptr))
+	{
+		integer = integer * 10 + *nptr - '0';
+		nptr++;
+	}
+	return (sign * integer);
 }
