@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:23:13 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/08 11:34:48 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 12:01:20 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,5 @@ void	ft_bzero(void *s, size_t size)
 	unsigned char	*ptr;
 
 	ptr = s;
-	if (size > 0)
-		while (size--)
-			*ptr++ = 0;
+	ft_memset(ptr, 0, size);
 }
