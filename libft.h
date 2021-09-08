@@ -6,14 +6,15 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:12:00 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/08 10:26:24 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 13:06:11 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 #define LIBFT_H
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t size);
