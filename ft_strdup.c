@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 18:52:24 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/08 19:17:25 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/10 15:29:48 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 char	*ft_strdup(const char *s)
 {
 	char	*tmp;
+	size_t	len_s;
 
-	tmp = (char *) malloc(ft_strlen (s) + 1);
+	len_s = ft_strlen (s);
+	tmp = (char *) malloc(len_s + 1);
 	if (tmp != NULL)
+	{
 		ft_memcpy (tmp, s, ft_strlen (s));
+		tmp[len_s] = '\0';
+	}
 	return (tmp);
 }
