@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:12:00 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/08 19:05:52 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 11:13:19 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ int		ft_toupper(int c);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(const char *s);
 
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
