@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:12:00 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/11 11:13:19 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/12 22:20:39 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LIBFT_H
 
 #include <stdlib.h>
+#include <unistd.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t size);
@@ -42,5 +43,12 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(const char *s, char c);
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+
+
 
 #endif
