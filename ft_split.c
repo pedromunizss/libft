@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/12 23:20:01 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/14 11:17:25 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ char	**ft_split(const char *s, char c)
 	len_s = ft_strlen(s);
 	n_delim = count_delim(s, c);
 	set = set_delim(s, c, n_delim);
-	split = malloc (n_delim * sizeof(char **));
+	split = malloc (n_delim+1 * sizeof(char **));
 	i = 0;
 	while (ft_memchr(s, c, len_s))
 		ft_bzero(ft_memchr(s, c, len_s), 1);
-	while (n_delim--)
+	split[n_delim] = NULL;
+ 	while (n_delim--)
 	{
 		split[i] = (char *)s + set[i] + 1;
 		i++;

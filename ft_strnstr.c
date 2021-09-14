@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:52:48 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/08 12:27:09 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:53:42 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	ptr_big = (char *)big;
 	ptr_lit = (char *)little;
 	len_lit = ft_strlen (ptr_lit);
-	while (len--)
+	if (len_lit == 0)
+		return (NULL);
+	while (len_lit <= len--)
 	{
 		if (*ptr_big == *ptr_lit)
-			if (ft_strncmp(ptr_big, ptr_lit, len_lit - 1))
+			if (ft_strncmp(ptr_big, ptr_lit, len_lit - 1) == 0)
 				return (ptr_big);
 		ptr_big++;
 	}
-	return (0);
+	return (NULL);
 }

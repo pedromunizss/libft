@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 10:12:00 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/12 22:20:39 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/14 09:29:40 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(const char *s, char c);
+char	*ft_itoa(int n);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr(char *s, int fd);
