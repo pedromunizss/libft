@@ -26,8 +26,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	len_dest = ft_strlen(dest);
 	len_cat = size - len_dest;
 	ptr_dest += len_dest;
-	if (size <= len_dest)
-		return (size + len_dest);
+	if (size < len_dest)
+		return (size + len_src);
 	while (*ptr_src != '\0' && --len_cat)
 		*ptr_dest++ = *ptr_src++;
 	*ptr_dest++ = '\0';

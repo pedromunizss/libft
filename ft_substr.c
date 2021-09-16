@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:01:11 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/10 15:32:23 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/16 11:43:22 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*buff;
+	// size_t	max_str_cpy;
 
-	if(s == NULL)
-		return (NULL);
-	buff = (char *) malloc(len + 1);
+	if (len <= ft_strlen(s + start))
+		buff = (char *) malloc(len + 1);
+	else 
+		buff = (char *) malloc(ft_strlen(s + start));
 	if (buff == NULL)
-		return(NULL);
+		return (NULL);
 	ft_memcpy(buff, s + start, len);
 	buff[len] = '\0';
 	return (buff);

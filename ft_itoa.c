@@ -6,13 +6,13 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 14:19:40 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/13 15:54:49 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/15 11:26:00 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_digits(int n)
+static size_t	count_digits(int n)
 {
 	int	i;
 
@@ -28,20 +28,24 @@ static int	count_digits(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	i = count_digits(n);
 	if (n <= 0)
 	{
 		str = malloc(++i * sizeof(char));
 		if (n < 0)
 			str[0] = '-';
+		if (n == 0)
+			str[0] = '0';
 		n *= -1;
 	}
 	else
 		str = malloc(i * sizeof(char));
 	str[--i] = '\0';
-	while (i)
+	while (n)
 	{
 		str[--i] = '0' + n % 10;
 		n /= 10;
