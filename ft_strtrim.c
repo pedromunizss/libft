@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:35:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/16 21:32:41 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:33:00 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,58 @@
 
 int is_set_chr(const char c, const char *set)
 {
-	char	*ptr;
+	char	*ptr_set;
 
-	ptr = (char *)set;
-	while (*ptr != '\0')
+	ptr_set = (char *)set;
+	while (*ptr_set != '\0')
 	{
-		if (c == *ptr)
+		if (*ptr_set == c)
 			return (1);
-		ptr++;
+		ptr_set++;
 	}
 	return (0);
 }
 
-int	count_set_chr(const char *s, const char *set)
+static int	count_set_chr(const char *s, const char *set)
 {
-	char	*ptr_s;
-	int		i;
+	int	i;
 
-	ptr_s = (char *)s;
 	i = 0;
-	while (*ptr_s != '\0')
-	{
-		if (is_set_chr(*ptr_s, set))
-			i++;
-		ptr_s++;
-	}
+	while (is_set_chr(s[i], set))
+		i++;
 	return (i);
+}
+
+static int	count_rev_set_chr(const char *s, const char *set)
+{
+	int	i;
+	int j;
+
+	i = ft_strlen(s) - 1;
+	j = 0;
+	while (is_set_chr(s[i], set))
+		{
+			i--;
+			j++;
+		}
+	return (j);
 }
 
 char	*ft_strtrim(const char *s, const char *set)
 {
-	char	*ptr_s;
-	int		count_sets;
+	int size;
+	int size_rev;
 	char	*buff;
 	char	*ptr_buff;
+	int i;
 
-	ptr_s = (char *)s;
-	count_sets = count_set_chr(ptr_s, set);
-	buff = (char *) malloc((ft_strlen(s)- count_sets + 1) * sizeof(char));
+	size = count_set_chr(s, set);
+	size_rev = count_rev_set_chr(s, set);
+	buff = (char*) malloc(sizeof(char) * ft_strlen(s) - size_rev - size + 1);
 	ptr_buff = buff;
-	while (*ptr_s != '\0')
-	{
-		if (!is_set_chr(*ptr_s, set))
-			ft_strlcpy(ptr_buff++, ptr_s, 1);
-		ptr_s++;
-	}
+	i = size;
+	while (i < (int)ft_strlen(s) - size_rev)
+		*ptr_buff++ = s[i++];
 	*ptr_buff = '\0';
 	return (buff);
 }
