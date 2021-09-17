@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 14:19:40 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/15 11:26:00 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/16 19:28:09 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 	i = count_digits(n);
 	if (n <= 0)
 	{
-		str = malloc(++i * sizeof(char));
+		str = (char *) malloc(++i * sizeof(char));
 		if (n < 0)
 			str[0] = '-';
 		if (n == 0)
@@ -43,7 +43,9 @@ char	*ft_itoa(int n)
 		n *= -1;
 	}
 	else
-		str = malloc(i * sizeof(char));
+		str = (char *) malloc(i * sizeof(char));
+	if (!str)
+		return (NULL);
 	str[--i] = '\0';
 	while (n)
 	{

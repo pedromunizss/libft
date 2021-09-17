@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:56:55 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/12 20:18:57 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/16 19:28:16 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s != '\0')
-	{
 		write(fd, s++, 1);
-		write(fd, "\n", 1);
-	}
+	ft_putchar_fd('\n', fd);
 }

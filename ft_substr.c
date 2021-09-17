@@ -16,6 +16,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*buff;
 	
+	if (!s)
+		return (NULL);
 	if (len <= ft_strlen(s + start))
 		buff = (char *) malloc(len + 1);
 	else 
