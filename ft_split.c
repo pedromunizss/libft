@@ -6,77 +6,95 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/14 11:17:25 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/17 21:19:06 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_delim(const char *s, char c)
+static int    count_delim(const char *s, char c)
 {
-	char	*ptr;
-	size_t	len;
-	int		count_delim;
+	int	count_delim;
+	int	i;
 
-	ptr = (char *)s;
-	len = ft_strlen(s);
+	i = 0;
 	count_delim = 0;
-	while (*ptr != '\0')
+	while (s[i] != '\0')
 	{
-		if (*ptr++ == c && (size_t)(ptr - s) < len)
-			if (*ptr != c && *ptr != '\0')
+		if (s[i] != c)
+			if (i == 0 || (s[i-1] == c))
 				count_delim++;
+		i++;
 	}
 	return (count_delim);
 }
 
-static int	*set_delim(const char *s, char c, int n_delim)
-{
-	char	*ptr;
-	int		*set;
-	int		*ptr_set;
-	int		stop;
 
-	ptr = (char *)s;
-	set = malloc(sizeof(int) * n_delim);
-	ptr_set = set;
-	stop = 0;
-	while (*ptr != '\0')
+
+static int	*set_tok(const char *s, char c, int n_delim)
+{
+    int	j;
+    int	i;
+    int	*set;
+
+	j = 0;
+	i = 0;
+	set = (int*) malloc(sizeof(int) * n_delim);
+	while (i < n_delim )
 	{
-		if (*ptr++ == c)
+		if (s[j] != c)
 		{
-			if (*ptr != c && *ptr != '\0')
+			if (j == 0 || s[j-1] == c)
 			{
-				*ptr_set = ptr - s - 1;
-				stop++;
-				if (stop == n_delim)
-					break ;
-				ptr_set++;
+				set[i] = j;
+				i++;
 			}
 		}
+		j++;
 	}
 	return (set);
+}
+
+static size_t  *size_tok(const char *s, char c, int *set_tok, int n_delim)
+{
+	char	*ptr;
+	int 	i;
+	size_t	j;
+	size_t *size_split;
+
+	size_split = (size_t *) malloc(n_delim * sizeof(size_t));
+	i = 0;
+	while (i < n_delim)
+	{
+		j = 0;
+		ptr = (char*)s + set_tok[i];
+		while (*ptr++ != c)
+			j++;
+		size_split[i] = j;
+		i++;
+	}
+	return (size_split);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**split;
-	int		len_s;
 	int		n_delim;
 	int		*set;
 	int		i;
+	size_t	*size;
 
-	len_s = ft_strlen(s);
+	if (!s)
+		return (NULL);
 	n_delim = count_delim(s, c);
-	set = set_delim(s, c, n_delim);
-	split = malloc (n_delim+1 * sizeof(char **));
+	set = set_tok(s, c, n_delim);
+	split = malloc ((n_delim + 1) * sizeof(char **));
+	size = size_tok(s, c, set, n_delim);
 	i = 0;
-	while (ft_memchr(s, c, len_s))
-		ft_bzero(ft_memchr(s, c, len_s), 1);
 	split[n_delim] = NULL;
- 	while (n_delim--)
+	while (i < n_delim)
 	{
-		split[i] = (char *)s + set[i] + 1;
+		split[i] = ft_substr(s, set[i], size[i]);
 		i++;
 	}
 	return (split);

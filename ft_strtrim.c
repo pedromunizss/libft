@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:35:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/17 15:40:30 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:18:20 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ char	*ft_strtrim(const char *s, const char *set)
 
 	size = count_set_chr(s, set);
 	size_rev = count_rev_set_chr(s, set);
+	if (size == (int)ft_strlen(s))
+		return ("\0");
 	buff = (char *) malloc(sizeof (char) * ft_strlen(s) - size_rev - size + 1);
+	if (!buff)
+		return (NULL);
 	ptr_buff = buff;
 	i = size;
 	while (i < (int)ft_strlen(s) - size_rev)
