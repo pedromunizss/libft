@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:01:11 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/16 11:43:22 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/22 12:19:03 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (len <= ft_strlen(s + start))
 		buff = (char *) malloc(len + 1);
 	else 
-		buff = (char *) malloc(ft_strlen(s + start));
+		buff = (char *) malloc(ft_strlen(s + start) + 1);
 	if (buff == NULL)
 		return (NULL);
-	ft_memcpy(buff, s + start, len);
-	buff[len] = '\0';
+	ft_strlcpy(buff, s + start, len + 1);
 	return (buff);
 }
