@@ -6,13 +6,13 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:35:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/17 16:18:20 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/23 00:58:33 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_set_chr(const char c, const char *set)
+static int	is_set(const char c, const char *set)
 {
 	char	*ptr_set;
 
@@ -26,24 +26,24 @@ int	is_set_chr(const char c, const char *set)
 	return (0);
 }
 
-static int	count_set_chr(const char *s, const char *set)
+static int	first_set_chr(const char *s, const char *set)
 {
 	int	i;
 
 	i = 0;
-	while (is_set_chr(s[i], set))
+	while (is_set(s[i], set))
 		i++;
 	return (i);
 }
 
-static int	count_rev_set_chr(const char *s, const char *set)
+static int	last_set_chr(const char *s, const char *set)
 {
 	int	i;
 	int	j;
 
 	i = ft_strlen(s) - 1;
 	j = 0;
-	while (is_set_chr(s[i], set))
+	while (is_set(s[i], set))
 	{
 		i--;
 		j++;
@@ -53,23 +53,31 @@ static int	count_rev_set_chr(const char *s, const char *set)
 
 char	*ft_strtrim(const char *s, const char *set)
 {
-	int		size;
-	int		size_rev;
+	size_t	size;
+	size_t	size_rev;
+	size_t	size_buff;
 	char	*buff;
-	char	*ptr_buff;
-	int		i;
 
-	size = count_set_chr(s, set);
-	size_rev = count_rev_set_chr(s, set);
-	if (size == (int)ft_strlen(s))
-		return ("\0");
-	buff = (char *) malloc(sizeof (char) * ft_strlen(s) - size_rev - size + 1);
-	if (!buff)
+	if (!s)
 		return (NULL);
-	ptr_buff = buff;
-	i = size;
-	while (i < (int)ft_strlen(s) - size_rev)
-		*ptr_buff++ = s[i++];
-	*ptr_buff = '\0';
+	size = first_set_chr(s, set);
+	size_rev = last_set_chr(s, set);
+	if (size == ft_strlen(s))
+	{
+		buff = (char *) malloc(sizeof(char));
+		ft_bzero(buff, 1);
+	}
+	else
+	{
+		size_buff = ft_strlen(s) - size_rev - size + 1;
+		buff = (char *) malloc(sizeof (char) * size_buff);
+		if (size_buff == 0)
+		{
+			ft_strlcpy(buff, s + size, size_buff - 1);
+			ft_bzero(buff + size_buff - 1, 1);
+		}
+		else
+			ft_strlcpy(buff, s + size, size_buff);
+	}
 	return (buff);
 }

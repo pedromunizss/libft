@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 17:00:43 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/22 12:00:13 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/22 22:05:54 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	{
 		ft_memcpy(dest, src, size - 1);
 		dest[size - 1] = '\0';
-	} 
+	}
 	return (len_src);
 }
