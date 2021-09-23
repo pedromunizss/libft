@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/23 17:53:37 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/23 18:27:44 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,12 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	n = count_delim(s, c);
+	if (!n)
+		return (NULL);
 	set = set_tok(s, c, n);
 	split = (char **) ft_calloc(sizeof(char **), (n + 1));
+	if (!split)
+		return (NULL);
 	size = size_tok(s, c, set, n);
 	while (n--)
 	{
