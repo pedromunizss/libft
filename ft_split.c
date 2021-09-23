@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/23 12:43:33 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/23 15:29:02 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ char	**ft_split(const char *s, char c)
 		ft_strlcpy(split[i], s + set[i], size[i] + 1);
 		i++;
 	}
+	free(set);
+	free(size);
 	return (split);
 }
