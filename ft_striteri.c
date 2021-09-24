@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:12:07 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/13 14:19:07 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/23 21:28:57 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
-		{
-			f(i, s + i);
-			i++;
-		} 
+	{
+		f(i, s + i);
+		i++;
+	}
 }

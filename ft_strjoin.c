@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:17:33 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/10 14:27:57 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/23 21:28:00 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr_buff = buff;
 	ptr_buff = ft_memcpy(ptr_buff, s1, len_s1);
 	ptr_buff += len_s1;
-	ptr_buff = ft_memcpy(ptr_buff , s2, len_s2 + 1);
+	ptr_buff = ft_memcpy(ptr_buff, s2, len_s2 + 1);
 	return (buff);
 }
