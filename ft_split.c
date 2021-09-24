@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/24 01:44:05 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 17:27:33 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,19 @@ static size_t	*size_tok(const char *s, char c, int *set_tok, int n_delim)
 	size_t	*size_split;
 
 	size_split = (size_t *) malloc(n_delim * sizeof(size_t));
+	if (!size_split)
+		return (NULL);
 	i = 0;
 	while (i < n_delim)
 	{
 		j = 0;
 		ptr = (char *)s + set_tok[i];
-		while (*ptr != c && *ptr != '\0')
+		while (*ptr++ != c)
+		{
 			j++;
+			if (*ptr++ == '\0')
+				break ;
+		}
 		ptr++;
 		size_split[i] = j;
 		i++;
@@ -79,23 +85,20 @@ char	**ft_split(const char *s, char c)
 {
 	char	**split;
 	int		n;
-	int		*set;
-	size_t	*size;
+	int		*sets;
+	size_t	*sizes;
 
 	if (!s)
 		return (NULL);
 	n = count_delim(s, c);
-	set = set_tok(s, c, n);
+	sets = set_tok(s, c, n);
 	split = (char **) ft_calloc(sizeof(char **), (n + 1));
 	if (split != NULL)
 		return (NULL);
-	size = size_tok(s, c, set, n);
+	sizes = size_tok(s, c, sets, n);
 	while (n--)
-	{
-		split[n] = (char *) malloc(sizeof(char) * (size[n] + 1));
-		ft_strlcpy(split[n], s + set[n], size[n] + 1);
-	}
-	free(set);
-	free(size);
+		split[n] = ft_substr(s, sets[n], sizes[n]);
+	free(sets);
+	free(sizes);
 	return (split);
 }
