@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:53:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/24 00:12:10 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 01:44:05 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ static size_t	*size_tok(const char *s, char c, int *set_tok, int n_delim)
 	{
 		j = 0;
 		ptr = (char *)s + set_tok[i];
-		while (*ptr++ != c && *ptr++)
+		while (*ptr != c && *ptr != '\0')
 			j++;
+		ptr++;
 		size_split[i] = j;
 		i++;
 	}
