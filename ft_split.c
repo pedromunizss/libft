@@ -71,7 +71,7 @@ static size_t	*size_tok(const char *s, char c, int *set_tok, int n_delim)
 		while (*ptr++ != c)
 		{
 			j++;
-			if (*ptr++ == '\0')
+			if (*ptr == '\0')
 				break ;
 		}
 		ptr++;
@@ -93,7 +93,7 @@ char	**ft_split(const char *s, char c)
 	n = count_delim(s, c);
 	sets = set_tok(s, c, n);
 	split = (char **) ft_calloc(sizeof(char **), (n + 1));
-	if (split != NULL)
+	if (!split)
 		return (NULL);
 	sizes = size_tok(s, c, sets, n);
 	while (n--)
