@@ -6,7 +6,7 @@
 #    By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 20:27:59 by pmuniz-s          #+#    #+#              #
-#    Updated: 2021/09/26 12:26:08 by pmuniz-s         ###   ########.fr        #
+#    Updated: 2021/09/27 16:16:26 by pmuniz-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,26 +23,26 @@ SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
  ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_putchar_fd.c \
  ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_striteri.c ft_strmapi.c
 
-OBJS = ${SRCS:.c=.o}
+OBJS = $(SRCS:.c=.o)
 
 RM = rm -f
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 so: 
-	${CC} -nostartfiles -fPIC ${CFLAGS} ${SRCS}
-	${CC} -nostartfiles -shared -o libft.so ${OBJS}
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	$(CC) -nostartfiles -shared -o libft.so $(OBJS)
 
-all: ${NAME}
+all: $(NAME)
 
 clean:
-	${RM} ${OBJS}
+	$(RM) $(OBJS)
 
 fclean: clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 
 re: fclean all
 
