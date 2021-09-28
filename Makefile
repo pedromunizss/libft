@@ -32,9 +32,6 @@ RM = rm -f
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-so: 
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	$(CC) -nostartfiles -shared -o libft.so $(OBJS)
 
 all: $(NAME)
 
