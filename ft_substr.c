@@ -23,10 +23,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		if (len > ft_strlen(s + start))
 		{
 			buff = (char *) ft_calloc(sizeof(char), ft_strlen(s + start) + 1);
+			if (!buff)
+				return (NULL);
 			len = ft_strlen(s + start);
 		}
 		else
 			buff = (char *) ft_calloc(sizeof(char), len + 1);
+		if (!buff)
+				return (NULL);
 		ft_strlcpy(buff, s + start, len + 1);
 		return (buff);
 	}
