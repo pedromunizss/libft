@@ -22,16 +22,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		if (len > ft_strlen(s + start))
 		{
-			buff = (char *) malloc(ft_strlen(s + start) + 1);
+			buff = (char *) ft_calloc(sizeof(char), ft_strlen(s + start) + 1);
 			len = ft_strlen(s + start);
 		}
 		else
-			buff = (char *) malloc(len + 1);
+			buff = (char *) ft_calloc(sizeof(char), len + 1);
 		ft_strlcpy(buff, s + start, len + 1);
 		return (buff);
 	}
 	else
-		buff = (char *) malloc(sizeof(char));
-	ft_bzero(buff, 1);
+		buff = (char *) ft_calloc(sizeof(char), 1);
 	return (buff);
 }
