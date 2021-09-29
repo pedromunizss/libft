@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		else
 			buff = (char *) ft_calloc(sizeof(char), len + 1);
 		if (!buff)
-				return (NULL);
+			return (NULL);
 		ft_strlcpy(buff, s + start, len + 1);
 		return (buff);
 	}
