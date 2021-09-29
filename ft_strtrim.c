@@ -67,14 +67,11 @@ char	*ft_strtrim(const char *s, const char *set)
 	else
 	{
 		size_buff = ft_strlen(s) - size_rev - size + 1;
-		buff = (char *) malloc(sizeof (char) * size_buff);
+		buff = (char *) ft_calloc(sizeof(char), size_buff);
 		if (!buff)
 			return (NULL);
 		if (size_buff == 0)
-		{
 			ft_strlcpy(buff, s + size, size_buff - 1);
-			ft_bzero(buff + size_buff - 1, 1);
-		}
 		else
 			ft_strlcpy(buff, s + size, size_buff);
 	}
