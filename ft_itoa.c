@@ -16,7 +16,10 @@ static size_t	count_digits(int n)
 {
 	int	i;
 
-	i = 1;
+	if (n == )
+		i = 1;
+	else
+		i = 0;
 	while (n)
 	{
 		i++;
@@ -29,26 +32,20 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	i;
+	int	sign;
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	if (n == 0)
-		return (ft_strdup("0"));
 	i = count_digits(n);
+	sign = 0;
 	if (n < 0)
-	{
-		str = (char *) ft_calloc(sizeof(char), ++i);
-		str[0] = '-';
-		n *= -1;
-	}
-	else
-		str = (char *) ft_calloc(sizeof(char), i);
+		sign = 1;
+	str = (char *) ft_calloc(sizeof(char), i + sign + 1);
 	if (!str)
 		return (NULL);
-	i--;
-	while (n)
+	while (i--)
 	{
-		str[--i] = '0' + n % 10;
+		str[i] = '0' + n % 10;
 		n /= 10;
 	}
 	return (str);
