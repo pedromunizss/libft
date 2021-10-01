@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:35:47 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/23 11:28:02 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/10/01 17:05:26 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,15 @@ char	*ft_strtrim(const char *s, const char *set)
 	else
 	{
 		size_buff = ft_strlen(s) - size_rev - size + 1;
-		buff = (char *) malloc(sizeof (char) * size_buff);
+		buff = (char *) ft_calloc(size_buff, sizeof(char));
+		if (!buff)
+			return (NULL);
 		if (size_buff == 0)
-		{
 			ft_strlcpy(buff, s + size, size_buff - 1);
-			ft_bzero(buff + size_buff - 1, 1);
-		}
 		else
 			ft_strlcpy(buff, s + size, size_buff);
 	}
+	if (!buff)
+		return (NULL);
 	return (buff);
 }

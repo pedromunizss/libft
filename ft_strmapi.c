@@ -6,7 +6,7 @@
 /*   By: pmuniz-s <pmuniz-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:23:36 by pmuniz-s          #+#    #+#             */
-/*   Updated: 2021/09/26 16:28:19 by pmuniz-s         ###   ########.fr       */
+/*   Updated: 2021/10/01 16:47:08 by pmuniz-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	ptr = ft_strdup(s);
+	if (!ptr)
+		return (NULL);
 	i = 0;
 	while (ptr[i])
 	{
